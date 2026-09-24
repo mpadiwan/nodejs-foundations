@@ -1,0 +1,9 @@
+# .gitignore
+node_modules/
+*.db
+*.db-journal
+.env
+/generated/prisma
+.agents/skills/
+.claude/skills/
+.windsurf/skills/
