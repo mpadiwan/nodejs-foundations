@@ -1,0 +1,22 @@
+{
+  "name": "module-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node tasks.js",
+    "dev": "nodemon tasks.js",
+    "users-api": "nodemon users-api.js",
+    "nested": "nodemon nested.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
