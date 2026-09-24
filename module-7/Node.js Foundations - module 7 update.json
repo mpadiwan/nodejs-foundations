@@ -1,0 +1,627 @@
+{
+  "info": {
+    "name": "Node.js Foundations",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Tasks API",
+      "item": [
+        {
+          "name": "tasks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "done",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "task/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/tasks/999",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "tasks",
+                "999"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Create Tasks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "secret123",
+                "description": "",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "tasks"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"boom\" : 123 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/tasks/1",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "tasks",
+                "1"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"done\": true }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/tasks/2",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "tasks",
+                "2"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users API",
+      "item": [
+        {
+          "name": "users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/users",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "user/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/users/3",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "users",
+                "3"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Create Users",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/users",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Diana Rose\",\n  \"email\": \"despares@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/users/1",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "users",
+                "1"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"email\": \"test@example.com\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/users/3",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "users",
+                "3"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nested API",
+      "item": [
+        {
+          "name": "projects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/projects",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "projects"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "project/:id/tasks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/projects/2/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "projects",
+                "2",
+                "tasks"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Create Project Task",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "description": "",
+            "url": {
+              "raw": "http://localhost:3000/projects/2/tasks",
+              "protocol": "http",
+              "host": [
+                "localhost:3000"
+              ],
+              "path": [
+                "projects",
+                "2",
+                "tasks"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Sample Task\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "localhost:3000",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": [
+            "localhost:3000/"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "localhost:3000/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": [
+            "localhost:3000"
+          ],
+          "path": [
+            "health"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "jsonplaceholder/post/1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "jsonplaceholder/posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "jsonplaceholder/user/1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/users/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "users",
+            "1"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "jsonplaceholder/post",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n  \"title\": \"hello\", \n  \"body\": \"world\", \n  \"userId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "jsonplaceholder/posts/1",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "localhost:3000/about",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://localhost:3000/about",
+          "protocol": "http",
+          "host": [
+            "localhost:3000"
+          ],
+          "path": [
+            "about"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "localhost:3000/time",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://localhost:3000/time",
+          "protocol": "http",
+          "host": [
+            "localhost:3000"
+          ],
+          "path": [
+            "time"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "localhost:3000/echo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://localhost:3000/echo?message=Alloooo",
+          "protocol": "http",
+          "host": [
+            "localhost:3000"
+          ],
+          "path": [
+            "echo"
+          ],
+          "query": [
+            {
+              "key": "message",
+              "value": "Alloooo"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "localhost:3000/users",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://localhost:3000/users",
+          "protocol": "http",
+          "host": [
+            "localhost:3000"
+          ],
+          "path": [
+            "users"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n  \"id\": 3, \n  \"name\": \"Margaux\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "slow-api-test",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "",
+        "url": {
+          "raw": "http://localhost:3000/slow",
+          "protocol": "http",
+          "host": [
+            "localhost:3000"
+          ],
+          "path": [
+            "slow"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    }
+  ],
+  "variable": []
+}
