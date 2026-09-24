@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1790277214676" clover="3.2.0">
+  <project timestamp="1790277214676" name="All files">
+    <metrics statements="46" coveredstatements="46" conditionals="22" coveredconditionals="21" methods="16" coveredmethods="16" elements="84" coveredelements="83" complexity="0" loc="46" ncloc="46" packages="1" files="3" classes="3"/>
+    <file name="math.js" path="/Users/margauxpadiwan/nodejs-foundations/module-9/math.js">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+    </file>
+    <file name="string-utils.js" path="/Users/margauxpadiwan/nodejs-foundations/module-9/string-utils.js">
+      <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="4"/>
+      <line num="2" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="12" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="17" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="18" count="2" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+    </file>
+    <file name="tasks-app.js" path="/Users/margauxpadiwan/nodejs-foundations/module-9/tasks-app.js">
+      <metrics statements="31" coveredstatements="31" conditionals="12" coveredconditionals="12" methods="9" coveredmethods="9"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="16" count="10" type="stmt"/>
+      <line num="17" count="10" type="stmt"/>
+      <line num="19" count="10" type="stmt"/>
+      <line num="20" count="10" type="stmt"/>
+      <line num="22" count="10" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="26" count="10" type="stmt"/>
+      <line num="27" count="2" type="stmt"/>
+      <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="32" count="10" type="stmt"/>
+      <line num="33" count="6" type="stmt"/>
+      <line num="34" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="35" count="5" type="stmt"/>
+      <line num="36" count="5" type="stmt"/>
+      <line num="37" count="5" type="stmt"/>
+      <line num="40" count="10" type="stmt"/>
+      <line num="41" count="2" type="stmt"/>
+      <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="47" count="10" type="stmt"/>
+      <line num="48" count="3" type="stmt"/>
+      <line num="49" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="50" count="2" type="stmt"/>
+      <line num="51" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="52" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="53" count="2" type="stmt"/>
+      <line num="56" count="10" type="stmt"/>
+      <line num="59" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
