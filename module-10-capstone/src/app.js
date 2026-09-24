@@ -1,5 +1,6 @@
 const express = require("express");
 const notesRouter = require("./routes/notes");
+const { errorHandler } = require("./middleware/errorHandler");
 
 const app = express();
 
@@ -10,5 +11,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/notes", notesRouter);
+
+app.use(errorHandler);
 
 module.exports = app;

@@ -1,5 +1,7 @@
 const express = require("express");
 const prisma = require("../db");
+const { validateNoteBody, validateIdParam } = require("../middleware/validate");
+const { sendError } = require("../middleware/errorHandler");
 
 const router = express.Router();
 
@@ -12,19 +14,9 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", validateNoteBody, async (req, res, next) => {
   try {
     const { title, content, tag } = req.body;
-
-    if (typeof title !== "string" || title.trim() === "") {
-      return res.status(400).json({ error: "title is required" });
-    }
-    if (typeof content !== "string" || content.trim() === "") {
-      return res.status(400).json({ error: "content is required" });
-    }
-    if (tag !== undefined && typeof tag !== "string") {
-      return res.status(400).json({ error: "tag must be a string" });
-    }
 
     const note = await prisma.note.create({
       data: { title, content, tag },
@@ -35,16 +27,11 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", validateIdParam, async (req, res, next) => {
   try {
-    const id = Number(req.params.id);
-    if (!Number.isInteger(id)) {
-      return res.status(400).json({ error: "id must be an integer" });
-    }
-
-    const note = await prisma.note.findUnique({ where: { id } });
+    const note = await prisma.note.findUnique({ where: { id: req.noteId } });
     if (!note) {
-      return res.status(404).json({ error: "note not found" });
+      return sendError(res, 404, "note not found");
     }
 
     res.json(note);
@@ -53,27 +40,12 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", validateIdParam, validateNoteBody, async (req, res, next) => {
   try {
-    const id = Number(req.params.id);
-    if (!Number.isInteger(id)) {
-      return res.status(400).json({ error: "id must be an integer" });
-    }
-
     const { title, content, tag } = req.body;
 
-    if (typeof title !== "string" || title.trim() === "") {
-      return res.status(400).json({ error: "title is required" });
-    }
-    if (typeof content !== "string" || content.trim() === "") {
-      return res.status(400).json({ error: "content is required" });
-    }
-    if (tag !== undefined && typeof tag !== "string") {
-      return res.status(400).json({ error: "tag must be a string" });
-    }
-
     const note = await prisma.note.update({
-      where: { id },
+      where: { id: req.noteId },
       data: { title, content, tag },
     }).catch((err) => {
       if (err.code === "P2025") return null;
@@ -81,7 +53,7 @@ router.put("/:id", async (req, res, next) => {
     });
 
     if (!note) {
-      return res.status(404).json({ error: "note not found" });
+      return sendError(res, 404, "note not found");
     }
 
     res.json(note);
@@ -90,20 +62,15 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", validateIdParam, async (req, res, next) => {
   try {
-    const id = Number(req.params.id);
-    if (!Number.isInteger(id)) {
-      return res.status(400).json({ error: "id must be an integer" });
-    }
-
-    const note = await prisma.note.delete({ where: { id } }).catch((err) => {
+    const note = await prisma.note.delete({ where: { id: req.noteId } }).catch((err) => {
       if (err.code === "P2025") return null;
       throw err;
     });
 
     if (!note) {
-      return res.status(404).json({ error: "note not found" });
+      return sendError(res, 404, "note not found");
     }
 
     res.status(204).send();
