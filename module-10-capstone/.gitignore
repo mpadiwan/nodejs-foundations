@@ -7,3 +7,4 @@ node_modules/
 .agents/skills/
 .claude/skills/
 .windsurf/skills/
+current-context.md
