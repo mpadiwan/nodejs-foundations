@@ -68,6 +68,40 @@ describe("POST /notes", () => {
     expect(res.body.error.message).toMatch(/content/i);
   });
 
+  it("returns 400 when title is longer than 100 characters", async () => {
+    const res = await request(app)
+      .post("/notes")
+      .send({ title: "a".repeat(101), content: "content" });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.message).toMatch(/title/i);
+  });
+
+  it("accepts a title exactly 100 characters long", async () => {
+    const res = await request(app)
+      .post("/notes")
+      .send({ title: "a".repeat(100), content: "content" });
+
+    expect(res.status).toBe(201);
+  });
+
+  it("returns 400 when content is longer than 5000 characters", async () => {
+    const res = await request(app)
+      .post("/notes")
+      .send({ title: "title", content: "a".repeat(5001) });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.message).toMatch(/content/i);
+  });
+
+  it("accepts content exactly 5000 characters long", async () => {
+    const res = await request(app)
+      .post("/notes")
+      .send({ title: "title", content: "a".repeat(5000) });
+
+    expect(res.status).toBe(201);
+  });
+
   it("returns 400 when tag is not a string", async () => {
     const res = await request(app)
       .post("/notes")
@@ -168,6 +202,17 @@ describe("PUT /notes/:id", () => {
     const res = await request(app).put(`/notes/${note.id}`).send({ content: "missing title" });
 
     expect(res.status).toBe(400);
+  });
+
+  it("returns 400 when the updated title is longer than 100 characters", async () => {
+    const note = await createNote();
+
+    const res = await request(app)
+      .put(`/notes/${note.id}`)
+      .send({ title: "a".repeat(101), content: "content" });
+
+    expect(res.status).toBe(400);
+    expect(res.body.error.message).toMatch(/title/i);
   });
 });
 
