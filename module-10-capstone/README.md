@@ -22,6 +22,7 @@ Run migrations to create the SQLite database:
 
 ```bash
 npm run db:migrate
+npm run db:generate
 ```
 
 ## Run
